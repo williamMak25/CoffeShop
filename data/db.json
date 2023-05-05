@@ -1,0 +1,224 @@
+{
+  "food": [
+    {
+      "name": "Bread",
+      "url": "https://i.ibb.co/Y7T0znQ/Bread.jpg",
+      "price": "2.5",
+      "id": 1
+    },
+    {
+      "name": "Biscuit",
+      "url": "https://i.ibb.co/KzGhCNb/biscuits.jpg",
+      "price": "2",
+      "id": 2
+    },
+    {
+      "name": "Cake",
+      "url": "https://i.ibb.co/jTrt5tH/cake.jpg",
+      "price": "4.6",
+      "id": 3
+    },
+    {
+      "name": "Chocolate Brownie",
+      "url": "https://i.ibb.co/k3HRdRW/chocolate-brownies.jpg",
+      "price": "4.8",
+      "id": 4
+    },
+    {
+      "name": "Chocolate Cookie",
+      "url": "https://i.ibb.co/HhRHCB3/chocolate-cookie.jpg",
+      "price": "3.2",
+      "id": 5
+    },
+    {
+      "name": "Chocolate Muffins",
+      "url": "https://i.ibb.co/XYnMF8N/top-view-freshly-baked-cupcakes-with-chocolate-chips-wooden-tray.jpg",
+      "price": "5",
+      "id": 6
+    },
+    {
+      "name": "Chocolate Sweet Roll",
+      "url": "https://i.ibb.co/M5VYWX3/Chocolate-sweet-roll.jpg",
+      "price": "6.1",
+      "id": 7
+    },
+    {
+      "name": "Croissants",
+      "url": "https://i.ibb.co/KbR5M7Y/croissants-wooden-cutting-board.jpg",
+      "price": "4.6",
+      "id": 8
+    },
+    {
+      "name": "Donut",
+      "url": "https://i.ibb.co/LNDqL8x/colorful-tasty-donuts.jpg",
+      "price": "6",
+      "id": 9
+    },
+    {
+      "name": "Mini Pizza",
+      "url": "https://i.ibb.co/SyRvstW/mini-pizzas.jpg",
+      "price": "7.5",
+      "id": 10
+    },
+    {
+      "name": "Fruit Salad",
+      "url": "https://i.ibb.co/2cGqm08/salad-dragon-fruit-grape-apple.jpg",
+      "price": "5.5",
+      "id": 11
+    },
+    {
+      "name": "Sandwish",
+      "url": "https://i.ibb.co/9ckMgNw/sandwish.jpg",
+      "price": "3.5",
+      "id": 12
+    },
+    {
+      "name": "Yogurt with fruit and cereals",
+      "url": "https://i.ibb.co/p1PCBm7/yoghurts-with-frutis-and-cereals.jpg",
+      "price": "7",
+      "id": 13
+    }
+  ],
+  "drink": [
+    {
+      "name": "Americano",
+      "price": "3.5",
+      "id": 1
+    },
+    {
+      "name": "Espresso",
+      "price": "2.5",
+      "id": 2
+    },
+    {
+      "name": "Cappucino",
+      "price": "5",
+      "id": 3
+    },
+    {
+      "name": "Latte",
+      "price": "3.3",
+      "id": 4
+    },
+    {
+      "name": "Machiato",
+      "price": "4.7",
+      "id": 5
+    },
+    {
+      "name": "Hot Tea",
+      "price": "2.5",
+      "id": 6
+    },
+    {
+      "name": "Hot Chocolate",
+      "price": "5.7",
+      "id": 7
+    },
+    {
+      "name": "Mocha",
+      "price": "3.2",
+      "id": 8
+    },
+    {
+      "name": "Flat white",
+      "price": "4.1",
+      "id": 9
+    },
+    {
+      "name": "Iced Coffee",
+      "price": "2.5",
+      "id": 10
+    },
+    {
+      "name": "Cortado",
+      "price": "5.3",
+      "id": 11
+    },
+    {
+      "name": "Milk Shake",
+      "price": "3.5",
+      "id": 12
+    },
+    {
+      "name": "Smoothie",
+      "price": "4.5",
+      "id": 13
+    }
+  ],
+  "user": [
+    {
+      "firstname": "Wai Yan",
+      "lastname": "Win Lwin",
+      "email": "waiyan25@gmail.com",
+      "country": "Myanmar",
+      "address": "swen In Street",
+      "city": "North Dagon,Yangon",
+      "state": "Yangon",
+      "post_code": "11421",
+      "id": "ced0d831-8067-4eae-9297-0f9d1f645f66"
+    }
+  ],
+  "order": [
+    {
+      "ordered_items": [
+        "Bread",
+        "Biscuit",
+        "Cake"
+      ],
+      "total_price": 9,
+      "order_time": "5/5/2023, 10:32:47 PM",
+      "customer_email": "waiyan25@gmail.com",
+      "order_id": "8361115f-20db-4748-9ea1-f7a7c64fd125",
+      "id": 1
+    },
+    {
+      "ordered_items": [
+        "Bread",
+        "Biscuit",
+        "Cake"
+      ],
+      "total_price": 13,
+      "order_time": "5/5/2023, 10:41:55 PM",
+      "customer_email": "waiyan25@gmail.com",
+      "order_id": "ca1f7776-a0a4-4353-aceb-407bf70a7f78",
+      "id": 2
+    },
+    {
+      "ordered_items": [
+        "Bread",
+        "Biscuit",
+        "Cake"
+      ],
+      "total_price": 18,
+      "order_time": "5/5/2023, 10:45:32 PM",
+      "customer_email": "waiyan25@gmail.com",
+      "order_id": "8d1ead60-aa4d-4118-8aad-6a4231c89cc2",
+      "id": 3
+    },
+    {
+      "ordered_items": [
+        "Chocolate Brownie",
+        "Espresso",
+        "Flat white"
+      ],
+      "total_price": 19,
+      "order_time": "5/5/2023, 10:51:07 PM",
+      "customer_email": "waiyan25@gmail.com",
+      "order_id": "a70af3db-a902-4b1c-8b02-a1f333ed7b70",
+      "id": 4
+    },
+    {
+      "ordered_items": [
+        "Biscuit",
+        "Chocolate Brownie",
+        "Cake"
+      ],
+      "total_price": 16,
+      "order_time": "5/5/2023, 10:55:23 PM",
+      "customer_email": "waiyan25@gmail.com",
+      "order_id": "86590a67-7984-4ffb-96d5-737f7b272cf1",
+      "id": 5
+    }
+  ]
+}

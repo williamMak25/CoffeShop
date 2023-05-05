@@ -1,0 +1,46 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: serif;
+  
+}
+.bgPhoto{
+ background-image: url('https://i.ibb.co/GVqwkQt/background-with-coffee-beans.jpg');
+ background-size: cover;
+ background-position: center;
+}
+body.ofh{
+  overflow: hidden;
+}
+.bg{
+  background-image: url('https://i.ibb.co/xHLcrv8/Pngtree-cat-claw-coffee-logo-4363875.png');
+  background-size: 600px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.orderDropAni{
+ animation-name: drop;
+ animation-duration: 4s;
+ animation-iteration-count: 1;
+}
+@keyframes drop {
+  0%{
+   margin-top: -80px; 
+  }
+  100%{
+    margin-top:0px;
+  }
+}
+.animation_bar{
+  animation-name: slide;
+ animation-duration: 5s;
+ animation-iteration-count: 1;
+}
+@keyframes slide {
+  0%{
+    margin-left: -270px;  
+  }
+  100%{
+    margin-left:0px;
+  }
+}

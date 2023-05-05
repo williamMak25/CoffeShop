@@ -1,0 +1,43 @@
+{
+  "name": "uitest",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "json-serve": "json-server --watch data/db.json --port 3004"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.12.1",
+    "country-list-js": "^3.1.7",
+    "firebase": "^9.21.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.0",
+    "react-icons": "^4.8.0",
+    "react-loading-skeleton": "^3.3.0",
+    "react-router-dom": "^6.10.0",
+    "react-skeleton-image": "^0.0.9",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^4.0.0-beta.0",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "json-server": "^0.17.3",
+    "json-server-auth": "^2.1.0",
+    "postcss": "^8.4.23",
+    "tailwindcss": "^3.3.1",
+    "vite": "^4.3.0"
+  }
+}
