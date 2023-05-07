@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 import country from 'country-list-js';
 import { useData } from '../../../State_Management/context';
@@ -27,6 +26,7 @@ export const ProfileInfo = () => {
     console.log(info)
    const handleClick = (status) => {
     if(!status){
+        navigate('/')
         return
     }else{
         Userinfo(info)
@@ -36,10 +36,10 @@ export const ProfileInfo = () => {
    }
   return (
     <>
-    <div className='flex flex-col justify-center items-center'>
+    <div className='flex flex-col justify-center items-center p-2'>
 
       <h2 className="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
-      <p className="mt-1 text-sm leading-6 text-gray-600">Use a permanent address where you can receive mail.</p>
+      <p className="mt-1 text-sm leading-6 text-gray-600">Please fill your personal information</p>
 
       <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <div className="sm:col-span-3">

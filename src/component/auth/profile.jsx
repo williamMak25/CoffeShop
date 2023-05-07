@@ -19,8 +19,9 @@ export const Profile = () => {
   },[userData,userOrderHistory])
 
   return (
-    <div className='flex flex-row'>
-      <div className='w-1/5 h-screen flex flex-col items-center pt-5 border-e-2 shadow animation_bar'>
+    <div className='flex flex-row max-lg:flex-col'>
+      <NavLink to='/products' className='absolute left-2 top-2 lg:hidden'><TiArrowBack className='text-4xl'/></NavLink>
+      <div className='w-1/5 h-screen flex flex-col items-center pt-5 border-e-2 shadow max-lg:h-full max-lg:w-full animation_bar '>
      
         <img src='https://i.ibb.co/gSX1KGx/profile.png' className='w-1/2 m-2'/>
         <p className='text-lg'>{userProfile?.firstname + " " + userProfile?.lastname}</p>
@@ -32,7 +33,7 @@ export const Profile = () => {
       
       <div className='w-full h-screen'>
         <div className='flex flex-row bg-cyan-700 relative justify-center'>
-          <NavLink to='/products' className='absolute left-2 top-2'><TiArrowBack className='text-white text-4xl'/></NavLink>
+          <NavLink to='/products' className='absolute left-2 top-2 max-lg:hidden'><TiArrowBack className='text-white text-4xl'/></NavLink>
           <p className='text-5xl text-center p-2 text-white'>Order History <BsReceiptCutoff className='inline text-4xl mb-2'/></p>
         </div>
         

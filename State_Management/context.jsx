@@ -13,7 +13,6 @@ export const Context = ({children}) => {
     const [userData,setUserData] = useState();
     const [currentUser,setCurrentUser] = useState();
     const [products,setProducts] = useState();
-    const [drink,setDrink] = useState();
     const [userOrderHistory,setUserOrderHistory] = useState();
     let filterItem = JSON.parse(localStorage.getItem("cartItem")) ? JSON.parse(localStorage.getItem("cartItem")) : [];
     const [ite,setIte] = useState();
@@ -36,10 +35,6 @@ useEffect(()=>{
     fetch('http://localhost:3004/food')
     .then( res => {return res.json()})
     .then( data => setProducts(data));
-
-    fetch('http://localhost:3004/drink')
-    .then( res => { return res.json()})
-    .then( data => setDrink(data))
 
     fetch('http://localhost:3004/order')
     .then(res => {return res.json()})
@@ -128,7 +123,6 @@ const value = {
     products,
     additem,
     reduceitem,
-    drink,
     updateOrder,
     currentUser,
     userOrderHistory,

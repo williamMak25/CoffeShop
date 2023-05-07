@@ -4,146 +4,183 @@
       "name": "Bread",
       "url": "https://i.ibb.co/Y7T0znQ/Bread.jpg",
       "price": "2.5",
+      "category": "bakery",
       "id": 1
     },
     {
       "name": "Biscuit",
       "url": "https://i.ibb.co/KzGhCNb/biscuits.jpg",
       "price": "2",
+      "category": "bakery",
       "id": 2
     },
     {
       "name": "Cake",
       "url": "https://i.ibb.co/jTrt5tH/cake.jpg",
       "price": "4.6",
+      "category": "bakery",
       "id": 3
     },
     {
       "name": "Chocolate Brownie",
       "url": "https://i.ibb.co/k3HRdRW/chocolate-brownies.jpg",
       "price": "4.8",
+      "category": "bakery",
       "id": 4
     },
     {
       "name": "Chocolate Cookie",
       "url": "https://i.ibb.co/HhRHCB3/chocolate-cookie.jpg",
       "price": "3.2",
+      "category": "bakery",
       "id": 5
     },
     {
       "name": "Chocolate Muffins",
       "url": "https://i.ibb.co/XYnMF8N/top-view-freshly-baked-cupcakes-with-chocolate-chips-wooden-tray.jpg",
       "price": "5",
+      "category": "bakery",
       "id": 6
     },
     {
       "name": "Chocolate Sweet Roll",
       "url": "https://i.ibb.co/M5VYWX3/Chocolate-sweet-roll.jpg",
       "price": "6.1",
+      "category": "bakery",
       "id": 7
     },
     {
       "name": "Croissants",
       "url": "https://i.ibb.co/KbR5M7Y/croissants-wooden-cutting-board.jpg",
       "price": "4.6",
+      "category": "bakery",
       "id": 8
     },
     {
       "name": "Donut",
       "url": "https://i.ibb.co/LNDqL8x/colorful-tasty-donuts.jpg",
       "price": "6",
+      "category": "bakery",
       "id": 9
     },
     {
       "name": "Mini Pizza",
       "url": "https://i.ibb.co/SyRvstW/mini-pizzas.jpg",
       "price": "7.5",
+      "category": "bakery",
       "id": 10
     },
     {
       "name": "Fruit Salad",
       "url": "https://i.ibb.co/2cGqm08/salad-dragon-fruit-grape-apple.jpg",
       "price": "5.5",
+      "category": "bakery",
       "id": 11
     },
     {
       "name": "Sandwish",
       "url": "https://i.ibb.co/9ckMgNw/sandwish.jpg",
       "price": "3.5",
+      "category": "bakery",
       "id": 12
     },
     {
       "name": "Yogurt with fruit and cereals",
       "url": "https://i.ibb.co/p1PCBm7/yoghurts-with-frutis-and-cereals.jpg",
       "price": "7",
+      "category": "bakery",
       "id": 13
-    }
-  ],
-  "drink": [
+    },
     {
       "name": "Americano",
+      "url": "https://i.ibb.co/xLd4FQr/close-up-delicious-cup-coffee-jpg.png",
       "price": "3.5",
-      "id": 1
+      "category": "drink",
+      "id": 14
     },
     {
       "name": "Espresso",
+      "url": "https://i.ibb.co/xLd4FQr/close-up-delicious-cup-coffee-jpg.png",
       "price": "2.5",
-      "id": 2
+      "category": "drink",
+      "id": 15
     },
     {
       "name": "Cappucino",
+      "url": "https://i.ibb.co/xLd4FQr/close-up-delicious-cup-coffee-jpg.png",
       "price": "5",
-      "id": 3
+      "category": "drink",
+      "id": 16
     },
     {
       "name": "Latte",
+      "url": "https://i.ibb.co/xLd4FQr/close-up-delicious-cup-coffee-jpg.png",
       "price": "3.3",
-      "id": 4
+      "category": "drink",
+      "id": 17
     },
     {
       "name": "Machiato",
+      "url": "https://i.ibb.co/xLd4FQr/close-up-delicious-cup-coffee-jpg.png",
       "price": "4.7",
-      "id": 5
+      "category": "drink",
+      "id": 18
     },
     {
       "name": "Hot Tea",
+      "url": "https://i.ibb.co/xLd4FQr/close-up-delicious-cup-coffee-jpg.png",
       "price": "2.5",
-      "id": 6
+      "category": "drink",
+      "id": 19
     },
     {
       "name": "Hot Chocolate",
+      "url": "https://i.ibb.co/xLd4FQr/close-up-delicious-cup-coffee-jpg.png",
       "price": "5.7",
-      "id": 7
+      "category": "drink",
+      "id": 20
     },
     {
       "name": "Mocha",
+      "url": "https://i.ibb.co/xLd4FQr/close-up-delicious-cup-coffee-jpg.png",
       "price": "3.2",
-      "id": 8
+      "category": "drink",
+      "id": 21
     },
     {
       "name": "Flat white",
+      "url": "https://i.ibb.co/xLd4FQr/close-up-delicious-cup-coffee-jpg.png",
       "price": "4.1",
-      "id": 9
+      "category": "drink",
+      "id": 22
     },
     {
       "name": "Iced Coffee",
+      "url": "https://i.ibb.co/xLd4FQr/close-up-delicious-cup-coffee-jpg.png",
       "price": "2.5",
-      "id": 10
+      "category": "drink",
+      "id": 23
     },
     {
       "name": "Cortado",
+      "url": "https://i.ibb.co/xLd4FQr/close-up-delicious-cup-coffee-jpg.png",
       "price": "5.3",
-      "id": 11
+      "category": "drink",
+      "id": 24
     },
     {
       "name": "Milk Shake",
+      "url": "https://i.ibb.co/xLd4FQr/close-up-delicious-cup-coffee-jpg.png",
       "price": "3.5",
-      "id": 12
+      "category": "drink",
+      "id": 25
     },
     {
       "name": "Smoothie",
+      "url": "https://i.ibb.co/xLd4FQr/close-up-delicious-cup-coffee-jpg.png",
       "price": "4.5",
-      "id": 13
+      "category": "drink",
+      "id": 26
     }
   ],
   "user": [
@@ -219,6 +256,17 @@
       "customer_email": "waiyan25@gmail.com",
       "order_id": "86590a67-7984-4ffb-96d5-737f7b272cf1",
       "id": 5
+    },
+    {
+      "ordered_items": [
+        "Biscuit",
+        "Cake"
+      ],
+      "total_price": 6,
+      "order_time": "5/7/2023, 1:56:36 AM",
+      "customer_email": "waiyan25@gmail.com",
+      "order_id": "483c3825-ae47-4172-aee7-e2605c3e992f",
+      "id": 6
     }
   ]
 }
