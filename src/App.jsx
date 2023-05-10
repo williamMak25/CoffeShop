@@ -13,9 +13,9 @@ import { Products } from './component/products/products'
 import { ProtectRoute } from './component/protectRoute'
 import { ProfileInfo } from './component/auth/profileInfo'
 import { OrderCart } from './component/products/orderCart'
+import { Admindashboard } from './component/admin/admindashboard'
 
 function App() {
-const [userCheck,setUserCheck] = useState(localStorage.getItem("status"))
   return (
     <Context>
 
@@ -23,7 +23,8 @@ const [userCheck,setUserCheck] = useState(localStorage.getItem("status"))
 
       <Route path='/' element={<LandingPage/>}/>
       <Route path='/about' element={<Aboutus/>}/>
-
+      <Route path='/admin' element={<Admindashboard/>}/>
+      
       <Route element={<ProtectRoute/>}>
         <Route path='/products' element={<Products/>}/>
         <Route path='/orderCart' element={<OrderCart/>}/>

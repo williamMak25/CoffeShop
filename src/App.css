@@ -45,3 +45,10 @@ body.ofh{
     margin-left:0px;
   }
 }
+
+.scorll::-webkit-scrollbar{
+  width: 2px;
+}
+.foodScroll::-webkit-scrollbar{
+  height: 5px;
+}

@@ -33,8 +33,9 @@ export const OrderCart = () => {
     
     const handleSuccess = () => {
         setShowWaitTime(false);
-        navigate('/')
         localStorage.setItem('cartItem',JSON.stringify([]))
+        navigate('/')
+       
     }
 
 console.log(items)
