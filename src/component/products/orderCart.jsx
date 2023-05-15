@@ -19,11 +19,10 @@ export const OrderCart = () => {
         for (let i = 0; i < items.length; i++) {   
             const eachItemSumPrice = items[i].itemQ * Number(items[i].price);
             totalPrice += eachItemSumPrice;
-            const itemsName = items[i].name;
+            const itemsName = items[i].name
             allitem.push(itemsName)      
         }
     }
-    
 
     const handleOrder = () => {
         updateOrder(allitem,Math.floor(totalPrice));

@@ -3,31 +3,56 @@ import { useData } from '../../../State_Management/context';
 import {BiDotsVertical} from 'react-icons/bi'
 import '../../App.css'
 import { ChartBar } from './chart';
+import { FoodAdding } from './foodAdding';
+import {RxCross1} from 'react-icons/rx';
+import {ImStarFull} from 'react-icons/im'
 
 export const Admindashboard = () => {
     const [orders,setOrders] = useState();
-    const {products,userData} = useData()
+    const {products,userData} = useData();
     const [orderDetail,setorderDetail] = useState(null);
     const [orderDetailCheck,setorderDetailCheck] = useState(false);
     const [openMenuId, setOpenMenuId] = useState(null);
-    /* let temp = []
-        orders?.map( order => {
-            console.log(order?.total_price)
-            order?.ordered_items?.forEach(element => {
-                let findItemPrice = products?.filter( ite => ite.name === element)
-                temp.push(findItemPrice)
-            });
-            
-        }) 
-    console.log(temp) */
-    
+    const [addFoodBar,setAddFoodBar] = useState(false);
+    const [allorederOriginalPrice,setAllorderOriginalPrice] = useState()
+     
+    let soldprice = 0
+    for (let i = 0; i < orders?.length; i++) {
+         soldprice += orders[i].total_price;
+        
+    }
+   
     useEffect(()=>{
         fetch('http://localhost:3004/order')
         .then( res => {return res.json()})
         .then( data => setOrders(data))
-       
-    },[])
 
+//......setting original price for all sold items........//
+        
+        let temp = [];
+
+        orders?.map( order => {
+
+            order?.ordered_items.forEach(element => {
+                let findItemPrice = products?.filter( ite => ite.name === element)
+                console.log(findItemPrice)
+                temp.push(findItemPrice.map(ite => ite.original_price))
+            });   
+        })
+        let secTemp = []
+        temp?.forEach( originalprice => {
+            console.log(parseInt(originalprice))
+            secTemp.push(parseInt(originalprice))
+            setAllorderOriginalPrice(secTemp)
+        })
+        let originalprice = 0
+        for (let i = 0; i < secTemp?.length; i++) {
+            originalprice += secTemp[i];  
+        }
+        setAllorderOriginalPrice(originalprice)
+
+    },[])
+    
     const handleShowDetail = (id,orderCheck) =>{
         if(!orderCheck){
             setorderDetailCheck(true)
@@ -49,67 +74,117 @@ export const Admindashboard = () => {
     const handleEditClick = (id) => {
         setOpenMenuId(id === openMenuId ? null : id);
       }
+    const stockChange = async(id,value) =>{
 
+        await fetch(`http://localhost:3004/food/${id}`,{
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body:JSON.stringify({"available": value})
+        }).then(res => {
+            console.log(res.status)
+        }).catch( err => err.message )
+    }
+    const handleDelete = (id) => {
+        fetch(`http://localhost:3004/food/${id}`, {
+        method: 'DELETE',
+        })
+        .then(response => {
+            if (response.ok) {
+            console.log('User deleted successfully');
+            } else {
+            console.error('Error deleting user');
+            }
+        })
+.catch(error => console.error(error));
+    }
   return (
-    <div className='w-full h-screen bg-violet-700 text-zinc-700 p-5 flex flex-row'>
+    <>
+    
+    <div className='w-full h-full bg-slate-200 text-zinc-700 p-2 flex flex-row justify-center'>
 
-        <div className='w-fit shadow-md relative h-fit shadow-lg'>
+        <div className='bg-slate-200 flex flex-col'>
+            <div className='p-5 w-fit'>   
+                <p className=' text-3xl px-4 text-center mb-1'>Total Sell - <span className='text-green-500'>{soldprice} $</span></p>
+                <p className='text-yellow-700 text-center mb-2'><ImStarFull className='inline mb-1'/> Revenue- <span className='text-green-500'>{(soldprice - allorederOriginalPrice)} $</span></p>
+                <p className=' bg-white px-4 py-2 text-center rounded-full text-yellow-400 shadow-md'> SubscribedUser : {userData?.length}</p>
+            </div>
+            <ChartBar/>
+        </div>
+
+        <div className='flex flex-col items-end'>
+
+        <div className='w-[370px] shadow-lg relative h-fit shadow-lg bg-white border-zinc-800 border-1'>
             
-            <p className='p-2 pb-1 text-3xl bg-violet-500 text-yellow-400 shadow-md'>Order List</p>
+            <p className='p-2 pb-1 text-3xl text-yellow-400 shadow-lg'>Order List</p>
 
-            <div className='h-[280px] overflow-y-auto bg-violet-500 scorll p-2 text-white border-t'>
+            <div className='h-[280px] overflow-y-auto scorll p-2 text-zinc-800 border-t'>
 
                 {orders?.map( item => {   
                 return(
-                    <div className='p-2 border-b hover:bg-violet-600 cursor-pointer' key={item.id} onClick={()=>handleShowDetail(item.id,orderDetailCheck)}>   
+                    <div className={orderDetail?.id === item?.id ? `p-2 border-b bg-slate-300 cursor-pointer`:'p-2 border-b hover:bg-slate-300 cursor-pointer'} key={item.id} onClick={()=>handleShowDetail(item.id,orderDetailCheck)}>   
                         <p>ID : {item?.order_id}</p>
-                        <p className='text-blue-300'>{item?.order_time}</p>
+                        <p className='text-blue-900'>{item?.order_time}</p>
                     </div>)})}
             </div>
-            { orderDetail && <div className='absolute top-40 left-80 bg-violet-600 text-white ml-2 p-3 w-full rounded text-sm shadow-md z-40 ' key={orderDetail.id}>
-                <p className='underline mb-1'>ORDER DETAIL</p>
+
+            { orderDetail && <div className='absolute top-20 right-72 bg-white text-dark ml-2 p-3 w-full rounded text-sm shadow-lg border z-40 ' key={orderDetail.id}>
+                <span className='float-right cursor-pointer' 
+                onClick={()=>{
+                setorderDetailCheck(false)
+                setorderDetail()}}><RxCross1/></span>
+                <p className='text-lg text-yellow-500 mb-1'>ORDER DETAIL</p>
                 <p>Customer Email : {orderDetail?.customer_email}</p>
                 <p className=''>Order ID : {orderDetail?.order_id}</p>
                 <p className='mb-1'>Date : {orderDetail?.order_time}</p>
-                <p className='underline'>Order foods</p>
-                {orderDetail?.ordered_items.map( food => {
+                <p className='text-yellow-500'>Order foods</p>
+                {orderDetail?.ordered_items?.map( food => {
                     return( <li>{food}</li> ) })}
-                <p className='mt-1 '>Total : {orderDetail?.total_price} $</p>
+                <p className='mt-1 '>Total : <span className='text-green-600'>{orderDetail?.total_price} $</span></p>
             </div>}
            
         </div>
-
-        <div className='ml-5 h-fit shadow-lg'>
-            <div className='flex flex-row justify-between items-center p-2 bg-violet-500 border-b'>
+        
+            
+        <div className='h-fit shadow-lg bg-white text-black mt-3'>
+        
+            <div className='flex flex-row justify-between items-center p-2 border-b shadow-lg'>
                 <p className='text-2xl px-2 text-yellow-400'>Foods</p>
-                <button className='bg-yellow-400 px-2 rounded mt-2'>Add New Food</button>
+                <button className='bg-yellow-400 px-2 rounded mt-2' onClick={()=>setAddFoodBar(!addFoodBar)}>Add New Food</button>
             </div>
-            <div className='flex flex-nowrap bg-violet-500 overflow-auto w-[370px] p-2 foodScroll'>
-            {products && products.map( ite => {
+            {addFoodBar && <FoodAdding addFoodBar={addFoodBar} setAddFoodBar={setAddFoodBar}/>}
+            <div className='flex flex-nowrap overflow-auto w-[370px] p-2 foodScroll'>
+                {products && products.map( ite => {
                 const isOpen = ite.id === openMenuId;
-                return(
-                    <div key={ite.id} className='relative w-40 m-2 flex-shrink-0 px-2 hover:bg-violet-600 hover:rounded flex flex-col justify-center items-start text-white'>
-                        <BiDotsVertical className='z-20 absolute top-4 right-2 text-white text-xl cursor-pointer' onClick={() => handleEditClick(ite.id)}/>
+            return(
+                <div key={ite.id} className='relative w-40 m-2 flex-shrink-0 px-2 hover:bg-zinc-300 hover:rounded flex flex-col justify-center items-start'>
+                    <BiDotsVertical className='z-20 absolute top-7 right-2 text-white text-xl cursor-pointer' onClick={() => handleEditClick(ite.id)}/>
 
-                        {isOpen && <div className='text-black flex flex-col bg-white absolute z-20 right-6 top-7 rounded p-2'>
-                            <button>Edit</button>
-                            <button className='border-t'>Remove</button>
-                        </div>}
+                    {isOpen && <div className='text-black flex flex-col bg-white absolute z-20 right-6 top-7 rounded p-2'>
+                        <button>Edit</button>
+                        <button className='border-t' onClick={()=>handleDelete(ite.id)}>Remove</button>
+                    </div>}
 
-                        <img src={ite?.url} className='w-40 rounded-lg opacity-80'/>
-                        <p className='text-yellow-400 text-lg'>{ite?.name}</p>
-                        <p>Original Price : {ite?.original_price}</p>
-                        <p>Sell Price : {ite?.price}</p>
-                        { ite?.available ? <p>Out of Stock : NO </p> : <p>Out of Stock : Yes </p>}
-                    </div>
-                )
-            })}
+                    <img src={ite?.url} className='w-40 rounded-lg opacity-80 mb-2'/>
+                    <p className='text-yellow-400 text-sm'>{ite?.name}</p>
+                    <p className='text-sm'>Original Price : {ite?.original_price}</p>
+                    <p className='text-sm'>Sell Price : {ite?.price}</p>
+
+                    { ite?.available ? <p className='text-sm'>Available : Yes </p> 
+                    : <p className='text-sm'>Available : No </p>}
+
+                    {ite?.available ? <button onClick={()=>stockChange(ite?.id,false)} className='border border-yellow-400 px-2 rounded-xl mt-2'>Change Stock</button>
+                        : <button onClick={()=>stockChange(ite?.id,true)} className='border border-yellow-400 px-2 rounded-xl mt-2'>Change Stock</button> }
+                            
+                </div>)})}
             </div>    
         </div>
-        <div className='ml-5'>
-            <p className='text-3xl bg-violet-500 px-3 rounded-full text-yellow-400 shadow-md'> SubscribedUser : {userData?.length}</p>
-            <ChartBar/>
+
         </div>
+
+      
+      
     </div>
+    
+    </>
   )
 }

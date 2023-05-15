@@ -12,7 +12,7 @@ export const useData = () =>{
 export const Context = ({children}) => {
     const [userData,setUserData] = useState();
     const [currentUser,setCurrentUser] = useState();
-    const [products,setProducts] = useState();
+    const [products,setProducts] = useState([]);
     const [userOrderHistory,setUserOrderHistory] = useState();
     let filterItem = JSON.parse(localStorage.getItem("cartItem")) ? JSON.parse(localStorage.getItem("cartItem")) : [];
     const [ite,setIte] = useState();
@@ -41,9 +41,11 @@ useEffect(()=>{
     .then((data) => {
         if(data){
             setUserOrderHistory(data)
+        }else{
+            return
         }
     })
-},[setUserOrderHistory])
+},[setUserOrderHistory,products])
 
 const register = (email,password) =>{
 

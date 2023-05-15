@@ -40,12 +40,21 @@ const handleMenuBar = () =>{
 
        <nav className='w-full h-16 flex flex-row justify-between items-center bg-cyan-700 sticky top-0 z-20 max-md:text-xs max-sm:hidden'>
         <p className='text-3xl mx-5 max-md:text-xs max-md:mx-1'>Brew Box</p>
+
         <div className='flex flex-row '>
+
           <NavLink to='/products'><li className='list-none mx-5 max-md:mx-2'>Menu</li></NavLink>
+
           {!currentUser ? <li className='list-none mx-5 cursor-pointer max-md:mx-2' onClick={handleClick}>LogIn/Signup</li>:
-            <NavLink to='/profile'><li className='list-none mx-5 max-md:mx-2'>Profile</li></NavLink>}
+          <NavLink to='/profile'><li className='list-none mx-5 max-md:mx-2'>Profile</li></NavLink>}
+
           <NavLink to='/about'><li className='list-none mx-5 max-md:mx-2'>About Us</li></NavLink>
-          {currentUser ? <button onClick={()=>signOut(auth)} className='list-none mx-5 max-md:mx-2'>SignOut <GoSignOut className='inline'/></button>
+
+          {currentUser ? <button 
+          onClick={()=>{
+            signOut(auth)
+            location.reload()}} 
+            className='list-none mx-5 max-md:mx-2'>SignOut <GoSignOut className='inline'/></button>
           : null} 
           
         </div>
