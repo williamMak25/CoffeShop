@@ -6,6 +6,8 @@ import { ChartBar } from './chart';
 import { FoodAdding } from './foodAdding';
 import {RxCross1} from 'react-icons/rx';
 import {ImStarFull} from 'react-icons/im'
+import { EditProducts } from './EditProducts';
+import { AdminLogin } from './AdminLogin';
 
 export const Admindashboard = () => {
     const [orders,setOrders] = useState();
@@ -14,6 +16,7 @@ export const Admindashboard = () => {
     const [orderDetailCheck,setorderDetailCheck] = useState(false);
     const [openMenuId, setOpenMenuId] = useState(null);
     const [addFoodBar,setAddFoodBar] = useState(false);
+    const [specifyProduct,setSpecifyProduct] = useState()
     const [allorederOriginalPrice,setAllorderOriginalPrice] = useState()
      
     let soldprice = 0
@@ -47,8 +50,10 @@ export const Admindashboard = () => {
         })
         let originalprice = 0
         for (let i = 0; i < secTemp?.length; i++) {
+            
             originalprice += secTemp[i];  
         }
+        console.log(originalprice)
         setAllorderOriginalPrice(originalprice)
 
     },[])
@@ -97,9 +102,9 @@ export const Admindashboard = () => {
         })
 .catch(error => console.error(error));
     }
+    console.log(allorederOriginalPrice)
   return (
     <>
-    
     <div className='w-full h-full bg-slate-200 text-zinc-700 p-2 flex flex-row justify-center'>
 
         <div className='bg-slate-200 flex flex-col'>
@@ -153,29 +158,37 @@ export const Admindashboard = () => {
             </div>
             {addFoodBar && <FoodAdding addFoodBar={addFoodBar} setAddFoodBar={setAddFoodBar}/>}
             <div className='flex flex-nowrap overflow-auto w-[370px] p-2 foodScroll'>
+                
                 {products && products.map( ite => {
                 const isOpen = ite.id === openMenuId;
-            return(
-                <div key={ite.id} className='relative w-40 m-2 flex-shrink-0 px-2 hover:bg-zinc-300 hover:rounded flex flex-col justify-center items-start'>
-                    <BiDotsVertical className='z-20 absolute top-7 right-2 text-white text-xl cursor-pointer' onClick={() => handleEditClick(ite.id)}/>
 
+                return(
+                <div>
+                {specifyProduct === ite?.id && <EditProducts setSpecifyProduct={setSpecifyProduct} imgUrl={ite?.url} name={ite?.name} originalPrice={ite?.original_price} sellPrice={ite?.price} available={ite?.available} foodId={specifyProduct} category={ite?.category}/>}
+                <div key={ite.id} className='relative w-40 m-2 flex-shrink-0 px-2 hover:bg-zinc-300 hover:rounded flex flex-col justify-center items-start'>
+                    
+                    <BiDotsVertical className='z-20 absolute top-5 right-2 text-white text-xl cursor-pointer' onClick={() => handleEditClick(ite.id)}/>
+                    
                     {isOpen && <div className='text-black flex flex-col bg-white absolute z-20 right-6 top-7 rounded p-2'>
-                        <button>Edit</button>
-                        <button className='border-t' onClick={()=>handleDelete(ite.id)}>Remove</button>
-                    </div>}
+                                    <button onClick={()=>setSpecifyProduct(ite?.id)}>Edit</button>
+                                    <button className='border-t' onClick={()=>handleDelete(ite.id)}>Remove</button>
+                                </div>}
 
                     <img src={ite?.url} className='w-40 rounded-lg opacity-80 mb-2'/>
                     <p className='text-yellow-400 text-sm'>{ite?.name}</p>
                     <p className='text-sm'>Original Price : {ite?.original_price}</p>
                     <p className='text-sm'>Sell Price : {ite?.price}</p>
 
-                    { ite?.available ? <p className='text-sm'>Available : Yes </p> 
-                    : <p className='text-sm'>Available : No </p>}
+                    {ite?.available ? <p className='text-sm'>Available : Yes </p> 
+                                    : <p className='text-sm'>Available : No </p>}
 
                     {ite?.available ? <button onClick={()=>stockChange(ite?.id,false)} className='border border-yellow-400 px-2 rounded-xl mt-2'>Change Stock</button>
-                        : <button onClick={()=>stockChange(ite?.id,true)} className='border border-yellow-400 px-2 rounded-xl mt-2'>Change Stock</button> }
+                                    : <button onClick={()=>stockChange(ite?.id,true)} className='border border-yellow-400 px-2 rounded-xl mt-2'>Change Stock</button> }
                             
-                </div>)})}
+                </div> 
+                </div>)}
+                )}
+                
             </div>    
         </div>
 
