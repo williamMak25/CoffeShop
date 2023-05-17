@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import '../../app.css'
+import '../../App.css'
 import { useData } from '../../../State_Management/context';
 import { useFun } from '../../../State_Management/customHooks';
 import {BsCart4} from 'react-icons/bs'
